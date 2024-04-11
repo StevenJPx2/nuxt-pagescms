@@ -1,0 +1,12 @@
+// @ts-ignore
+import files from "#pages-cms/pages/file";
+
+export default defineEventHandler(async (event) => {
+  const page = getRouterParam(event, "page");
+
+  if (!page || !files[page]) {
+    throw new Error(`File not found: ${page}`);
+  }
+
+  return files[page].content;
+});
