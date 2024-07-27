@@ -7,9 +7,9 @@ import {
   createResolver,
   defineNuxtModule,
   updateTemplates,
-} from "nuxt/kit";
+} from "@nuxt/kit";
 
-import { load } from "js-yaml";
+import { parse as yamlParse } from "yaml";
 import { format } from "prettier";
 import { parse } from "./utils";
 import { camelCase, join, pascalCase } from "string-ts";
@@ -29,7 +29,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const virtualFilePath = "pages-cms";
-    const { content } = load(
+    const { content } = yamlParse(
       fs.readFileSync(`${nuxt.options.srcDir}/.pages.yml`, "utf-8"),
     ) as Config;
 
@@ -76,7 +76,7 @@ export default defineNuxtModule<ModuleOptions>({
 
       for (const type in types) {
         nitroConfig.virtual[`#pages-cms/pages/${type}`] =
-          `export default ${JSON.stringify(types[type], null, 2)}`;
+          `export default ${JSON.stringify(types[type as ContentType], null, 2)}`;
       }
     });
 
