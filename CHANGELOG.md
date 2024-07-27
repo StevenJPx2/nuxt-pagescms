@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.0...v0.1.1)
+
+### 🩹 Fixes
+
+- Handle kebab cased names, fix import issues ([7f8a7fb](https://github.com/StevenJPx2/nuxt-pagescms/commit/7f8a7fb))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.0
 
 
