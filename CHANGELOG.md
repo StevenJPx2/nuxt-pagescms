@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- **imports:** Add more explicit imports ([8e8840c](https://github.com/StevenJPx2/nuxt-pagescms/commit/8e8840c))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.1
 
 [compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.0...v0.1.1)
