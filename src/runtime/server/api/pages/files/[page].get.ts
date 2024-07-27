@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error virtual file
 import files from "#pages-cms/pages/file";
 
 export default defineEventHandler(async (event) => {

@@ -1,18 +1,20 @@
-import {
-  defineNuxtModule,
-  addTypeTemplate,
-  addImportsDir,
-  createResolver,
-  updateTemplates,
-  addServerScanDir,
-} from "nuxt/kit";
-import fs from "fs";
-import { load } from "js-yaml";
-import { pascalCase, camelCase, join } from "string-ts";
-import { format } from "prettier";
-import { parse } from "smol-toml";
+import * as fs from "node:fs";
 
-import glob from "tiny-glob";
+import {
+  addImportsDir,
+  addServerScanDir,
+  addTypeTemplate,
+  createResolver,
+  defineNuxtModule,
+  updateTemplates,
+} from "nuxt/kit";
+
+import { load } from "js-yaml";
+import { format } from "prettier";
+import { parse } from "./utils";
+import { camelCase, join, pascalCase } from "string-ts";
+import { fdir } from "fdir";
+import type { Format, FullFormat } from "./utils/formats";
 
 interface ModuleOptions {
   typePrefix: string;
@@ -30,7 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
       fs.readFileSync(`${nuxt.options.srcDir}/.pages.yml`, "utf-8"),
     ) as Config;
 
-    const templateName = `${virtualFilePath}/pages-cms.mjs`;
+    const _templateName = `${virtualFilePath}/pages-cms.mjs`;
     const typeTemplateName =
       `${virtualFilePath}/${options.typeVirtualFileName}` as const;
 
@@ -43,40 +45,41 @@ export default defineNuxtModule<ModuleOptions>({
         collection: {},
       };
 
-      for (const { name, type, path, format } of content) {
+      for (const { name, type, path: partialPath, format } of content) {
+        const path = `${nuxt.options.srcDir}/${partialPath}`;
         const resolvedFormat =
-          format ?? (path.split(".").at(-1) || "yaml-frontmatter");
+          format ?? ((path.split(".").at(-1) as Format) || "yaml-frontmatter");
 
         const resolvedName = camelCase(name);
 
         if (type === "file") {
           types.file[resolvedName] = {
-            content: parse(fs.readFileSync(path, "utf-8")),
+            content: parse(fs.readFileSync(path, "utf-8"), {
+              format: resolvedFormat,
+            }),
           };
         } else {
           types.collection[resolvedName] = {
-            content: (await glob(`${path}/*.${resolvedFormat}`)).map((page) =>
-              parse(fs.readFileSync(page, "utf-8")),
-            ),
+            content: new fdir()
+              .glob(`${path}/*.${resolvedFormat}`)
+              .withBasePath()
+              .crawl(path)
+              .sync()
+              .map((page) =>
+                parse(fs.readFileSync(page, "utf-8"), {
+                  format: resolvedFormat,
+                }),
+              ),
           };
         }
       }
 
       nitroConfig.virtual = nitroConfig.virtual || {};
 
-      nitroConfig.virtual["#pages-cms/pages/file"] = await format(
-        "export default " + JSON.stringify(types.file),
-        {
-          parser: "typescript",
-        },
-      );
-
-      nitroConfig.virtual["#pages-cms/pages/collection"] = await format(
-        "export default " + JSON.stringify(types.collection),
-        {
-          parser: "typescript",
-        },
-      );
+      for (const type in types) {
+        nitroConfig.virtual[`#pages-cms/pages/${type}`] =
+          `export default ${JSON.stringify(types[type], null, 2)}`;
+      }
     });
 
     addTypeTemplate({
@@ -93,7 +96,9 @@ export default defineNuxtModule<ModuleOptions>({
           const typifiedName = pascalCase(
             join([options.typePrefix, name], "-"),
           );
-          template += `export type ${typifiedName} = { ${fields.map(renderField).join(";\n")} };\n`;
+          template += `export type ${typifiedName} = { ${fields
+            .map(renderField)
+            .join(";\n")} };\n`;
 
           types[type].push(typifiedName);
         }
@@ -106,7 +111,9 @@ export default defineNuxtModule<ModuleOptions>({
                 `${camelCase(value.replace(options.typePrefix, ""))}: ${value}`,
             )
             .join(";\n");
-          template += `export type ${pascalCase(join([options.typePrefix, type], "-"))} = { ${fields}\n };`;
+          template += `export type ${pascalCase(
+            join([options.typePrefix, type], "-"),
+          )} = { ${fields}\n };`;
         }
 
         return await format(template, { parser: "typescript" });
@@ -143,7 +150,7 @@ type Field = { name: string; list?: boolean; required?: boolean } & (
   | { type: "object"; fields: Field[] }
   | {
       type: "select";
-      options?: { values: string[] | { value: string; label: string }[] };
+      options?: { values: (string | { value: string; label: string })[] };
     }
 );
 
@@ -152,7 +159,7 @@ type Config = {
     name: string;
     type: "file" | "collection";
     path: string;
-    format?: string;
+    format?: FullFormat;
     fields: Field[];
   }[];
 };
@@ -176,5 +183,7 @@ const renderField = (field: Field): string => {
     type = `{ ${field.fields.map(renderField).join("; ")} }`;
   }
 
-  return `${field.name}${!field.required ? "?" : ""}: ${type}${field.list ? "[]" : ""}`;
+  return `${field.name}${!field.required ? "?" : ""}: ${type}${
+    field.list ? "[]" : ""
+  }`;
 };

@@ -1,8 +1,38 @@
-<template>
-  <div>
-    Nuxt module playground!
-  </div>
-</template>
+<script setup lang="ts">
+const home = await useFile("home");
+const common = await useFile("common");
+const propertiesPage = await useFile("propertiesPage");
 
-<script setup>
+const properties = await useCollection("properties");
+const faq = await useCollection("faq");
+const experiences = await useCollection("experiences");
+
+const files = computed(() => ({
+  Home: home.value,
+  Common: common.value,
+  "Properties Page": propertiesPage.value,
+}));
+
+const collections = computed(() => ({
+  Properties: properties.value,
+  FAQ: faq.value,
+  Experiences: experiences.value,
+}));
+
+const testValues = computed(() => ({
+  Files: files.value,
+  Collections: collections.value,
+}));
 </script>
+
+<template>
+  <template v-for="(obj, typeName) in testValues" :key="typeName">
+    <h1>{{ typeName }}</h1>
+    <template v-for="(value, name) in obj" :key="name">
+      <h2>{{ name }}</h2>
+      <pre>
+        {{ JSON.stringify(value, null, 2) }}
+      </pre>
+    </template>
+  </template>
+</template>
