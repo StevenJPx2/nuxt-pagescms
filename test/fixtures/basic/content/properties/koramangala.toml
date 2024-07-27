@@ -1,0 +1,45 @@
+
+name = 'Koramangala'
+description = 'Experience the dynamic energy of Koramangala, perfectly situated for both business and leisure travelers.'
+color = 'sage'
+releaseDate = '2025-01-09'
+location.address = 'No:3, 80 Feet Road Near 91 Spring Board, Opposite Indoor stadium, Koramangala 8th Block, Koramangala,'
+location.state = 'Karnataka'
+location.country = 'India'
+location.pin = '560017'
+location.locations = [
+	{ title = 'Kempegowda International Airport, Bangalore', distance = 35.0, eta = 60.0 },
+	{ title = 'Bus Terminal Koramangala TTMC', distance = 6.0, eta = 20.0 },
+	{ title = 'Bangalore City Railway Station', distance = 6.0, eta = 20.0 },
+]
+location.city = 'Bengaluru'
+roomAttributes.count = 50.0
+roomAttributes.amenities = [
+	{ featured = false },
+]
+rooms = [
+	{ name = 'Cozy Studio', sqft = 205.0, occupancy = 2.0, rate = 3500.0 },
+	{ name = 'Large non-Balcony', sqft = 205.0, occupancy = 2.0, rate = 4500.0 },
+	{ name = 'Large Balcony Rooms', sqft = 205.0, occupancy = 2.0, rate = 5500.0 },
+]
+lookbook = [
+	{ description = 'Game room' },
+	{ description = 'Gym' },
+	{ description = 'All day café' },
+	{ description = 'Coworking' },
+	{ description = 'Yoga' },
+]
+poi.restaurants = [
+	{ title = 'Chinita', distance = 2.0, eta = 5.0 },
+	{ title = 'Chianti', distance = 5.0, eta = 10.0 },
+	{ title = 'Kebapci', distance = 3.0, eta = 5.0 },
+]
+poi.nightLife = [
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+]
+poi.attractions = [
+	{ title = 'Lalbagh Botanical Garden', distance = 7.0, eta = 10.0 },
+	{ title = 'Cubbon Park', distance = 6.0, eta = 20.0 },
+]

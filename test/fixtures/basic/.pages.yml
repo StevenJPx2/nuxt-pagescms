@@ -1,0 +1,312 @@
+media:
+  input: public/assets
+  output: /assets
+
+content:
+  - name: common
+    label: Common Attributes
+    path: content/common.toml
+    type: file
+    fields:
+      - name: faq
+        label: FAQ
+        type: object
+        fields:
+          - { name: sprite, label: Sprite, type: image }
+          - { name: title, label: Title, type: string }
+      - name: text
+        label: Text Section
+        type: rich-text
+  - name: home
+    label: Home
+    path: content/home.toml
+    type: file
+    fields:
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - name: booking
+            label: Hero Booking
+            type: object
+            fields:
+              - { name: image, label: Image, type: image }
+              - { name: link, label: Link, type: string }
+      - name: features
+        label: Key Features
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Image, type: image }
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: text }
+      - name: valueProps
+        label: Value Propositions
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Image, type: image }
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: text }
+          - name: link
+            label: Link
+            type: object
+            fields:
+              - { name: href, label: Link, type: string }
+              - { name: text, label: text, type: string }
+          - { name: sprite, label: Sprite, type: image }
+      - name: properties
+        label: Featured Properties
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+      - name: lookbook
+        label: Lookbook
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: sprite, label: Sprite, type: image }
+      - name: experiences
+        label: Experiences Section
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+      - name: restaurants
+        label: Restaurants Section
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+      - name: otherletter
+        label: Otherletter Section
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - { name: sprite, label: Sprite, type: image }
+          - name: instagram
+            label: Instagram
+            type: object
+            fields:
+              - { name: image, label: Image, type: image }
+              - { name: title, label: Title, type: string }
+              - { name: subtitle, label: Subtitle, type: string }
+              - { name: link, label: Link, type: string }
+  - name: properties-page
+    label: Properties Page
+    type: file
+    path: content/properties-page.toml
+    fields:
+      - { name: sprite, label: Sprite, type: image }
+      - { name: heading, label: Heading, type: text }
+      - name: property
+        label: Property Page
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - name: rooms
+            label: Rooms
+            type: object
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: subtitle, label: Subtitle, type: string }
+          - name: lookbook
+            label: Rooms
+            type: object
+            fields:
+              - { name: sprite, label: Sprite, type: image }
+              - { name: title, label: Title, type: string }
+              - { name: subtitle, label: Subtitle, type: string }
+          - name: poi
+            label: Around the property
+            type: object
+            fields:
+              - { name: restaurantsSprite, label: Restaurants Sprite, type: image }
+              - { name: nightLifeSprite, label: Night Life Sprite, type: image }
+              - { name: attractionsSprite, label: Attractions Sprite, type: image }
+            
+  - name: properties
+    label: Properties
+    type: collection
+    path: content/properties
+    filename: "{primary}.toml"
+    format: toml
+    fields:
+      - { name: name, required: true, label: Name, type: string }
+      - { name: sprite, label: Sprite, type: image }
+      - { name: image, label: Image, type: image }
+      - { name: description, label: Description, type: text }
+      - name: color
+        label: Color
+        type: select
+        options:
+          values:
+            - value: sage
+              label: Sage
+            - value: beige
+              label: Beige
+            - value: graphite
+              label: Graphite
+            - value: scarlet
+              label: Scarlet
+            - value: mud
+              label: Mud
+            - value: green
+              label: Green
+            - value: yellow
+              label: Yellow
+
+      - { name: releaseDate, label: Release Date, type: date }
+      - name: location
+        label: Location
+        type: object
+        fields:
+          - { name: address, label: Address Line, type: string }
+          - { name: city, label: City, type: string }
+          - { name: state, label: State, type: string }
+          - { name: country, label: Country, type: string }
+          - { name: pin, label: PIN Code, type: string }
+          - { name: link, label: Google Maps Link, type: string }
+          - { name: lat, label: Latitude, type: number }
+          - { name: lng, label: Longitude, type: number }
+          - name: locations
+            label: Nearby Stations
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: distance, label: Distance (in KM), type: number }
+              - {
+                  name: eta,
+                  label: Estimated time to Arrive (in min),
+                  type: number,
+                }
+              - { name: link, label: Google Maps Link, type: string }
+              - { name: lat, label: Latitude, type: number }
+              - { name: lng, label: Longitude, type: number }
+      - name: roomAttributes
+        label: Room Attributes
+        type: object
+        fields:
+          - { name: count, label: Number of rooms, type: number }
+          - name: amenities
+            label: amenities
+            type: object
+            list: true
+            fields:
+              - { name: description, label: Description, type: text }
+              - { name: sprite, label: Sprite, type: image }
+              - { name: featured, label: Featured, type: boolean }
+      - name: amenities
+        label: Amenities
+        type: object
+        list: true
+        fields:
+          - { name: description, label: Description, type: text }
+          - { name: sprite, label: Sprite, type: image }
+      - name: rooms
+        label: Rooms
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: sqft, label: Sq. Ft Area, type: number }
+          - { name: occupancy, label: Occupancy Limit, type: number }
+          - { name: rate, label: Rate, type: number }
+          - { name: images, label: Images, type: image, list: true }
+          - { name: link, label: Booking Link, type: string }
+      - name: lookbook
+        label: Lookbook
+        type: object
+        list: true
+        fields:
+          - { name: description, label: Description, type: string }
+          - { name: image, label: Image, type: image }
+      - name: restaurant
+        label: Restaurant
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: image, label: Image, type: image }
+          - { name: sprite, label: Sprite, type: image }
+      - name: poi
+        label: Around the property
+        type: object
+        fields:
+          - name: restaurants
+            label: Restaurants
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: distance, label: Distance (in KM), type: number }
+              - {
+                  name: eta,
+                  label: Estimated time to Arrive (in min),
+                  type: number,
+                }
+              - { name: link, label: Google Maps Link, type: string }
+              - { name: lat, label: Latitude, type: number }
+              - { name: lng, label: Longitude, type: number }
+          - name: nightLife
+            label: Night Life
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: distance, label: Distance (in KM), type: number }
+              - {
+                  name: eta,
+                  label: Estimated time to Arrive (in min),
+                  type: number,
+                }
+              - { name: link, label: Google Maps Link, type: string }
+              - { name: lat, label: Latitude, type: number }
+              - { name: lng, label: Longitude, type: number }
+          - name: attractions
+            label: Attractions
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: distance, label: Distance (in KM), type: number }
+              - {
+                  name: eta,
+                  label: Estimated time to Arrive (in min),
+                  type: number,
+                }
+              - { name: link, label: Google Maps Link, type: string }
+              - { name: lat, label: Latitude, type: number }
+              - { name: lng, label: Longitude, type: number }
+  - name: experiences
+    label: Experiences
+    type: collection
+    path: content/experiences
+    format: toml
+    filename: "{year}-{month}-{day}-{primary}.toml"
+    fields:
+      - { name: image, label: Image, type: image }
+      - { name: property, label: Property, type: string }
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: text }
+      - name: link
+        label: Link
+        type: object
+        fields:
+          - { name: href, label: Link, type: string }
+          - { name: text, label: text, type: string }
+  - name: faq
+    label: FAQ
+    type: collection
+    path: content/faq
+    filename: "{primary}.toml"
+    format: toml
+    fields:
+      - { name: question, label: Question, type: text }
+      - { name: answer, label: Answer, type: text }

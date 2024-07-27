@@ -1,0 +1,28 @@
+
+hero.title = 'Hotels are boring. Not us.'
+hero.subtitle = 'Discover the “other” hotel experience.'
+hero.booking.title = 'Book your stay today'
+text = "Otherland is a vibe. From downtown locations of the coolest cities. To pristine beaches and mountain tops .  \nWe’re building the coolest hotels in the coolest places. Each one unique to its location, yet with the Otherland vibe an exciting fresh aesthetic (no marble or chandeliers ever!), the finest hospitality in the world and just a little itch to create unimaginable experiences."
+features = [
+	{ image = '/assets/clock.svg', title = '24-hr Check-in', description = 'We fit your schedule, not the other way around.' },
+	{ image = '/assets/Gif 1 - Everyone’s welcome Desktop.svg', title = 'Everyone’s Welcome', description = 'Otherland is for everyone - absolutely everyone!' },
+	{ image = '/assets/Gif 2 - Luxury where it matters Desktop.svg', title = 'Luxury where it matters', description = 'We’re not ostentatious. Just luxurious, in the right ways.' },
+]
+valueProps = [
+	{ title = 'Experience-first', description = 'Unique experiences at every one of our hotels - bar crawls, treasure hunts, farm-to-table dining, yacht-jamborees, scuba-diving…', sprite = '/assets/Gif 3- Experience Led Desktop.svg' },
+	{ title = 'Design-led', description = 'We live and breathe ergonomics and aesthetics. Every inch of our hotels is designed to excite, entertain and energize.', sprite = '/assets/Gif 3- Experience Led Desktop.svg' },
+	{ title = 'Food-forward', description = 'Fast-casual breakfasts bars, street food experiences, beach facing roof-top bar… We love food in all forms and formats!', sprite = '/assets/GIF 5-Food-forward Desktop.svg' },
+]
+properties.title = 'Find your land'
+properties.subtitle = 'Discover the “other” hotel experience.'
+lookbook.title = 'Lookbook'
+lookbook.sprite = '/assets/lookbook.svg'
+experiences.title = 'Upcoming experiences'
+experiences.subtitle = 'Discover the “other” hotel experience.'
+restaurants.title = 'Our restaurants'
+restaurants.subtitle = 'Discover the “other” hotel experience.'
+otherletter.title = 'Otherletter'
+otherletter.subtitle = 'Subscribe to our newsletter and get exclusive discounts.'
+otherletter.instagram.title = 'Follow @otherland'
+otherletter.instagram.subtitle = 'on Instagram'
+otherletter.sprite = '/assets/dog-mail.svg'

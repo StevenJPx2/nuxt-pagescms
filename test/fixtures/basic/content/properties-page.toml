@@ -1,0 +1,12 @@
+
+sprite = '/assets/Gif 3- Experience Led Desktop-1.svg'
+heading = 'The coolest locations in the world. Coming soon.'
+property.title = 'Hotels are boring. Not us.'
+property.rooms.title = 'The Other Rooms'
+property.rooms.subtitle = 'All rooms have separate living, dining and bedroom areas. 24 hour check in.'
+property.lookbook.sprite = '/assets/Koramangala- At the property Section Illustration.svg'
+property.lookbook.title = 'At the property'
+property.lookbook.subtitle = 'State of the art ameneties at every one of our hotels'
+property.poi.restaurantsSprite = '/assets/Homepage- Our Restuarants Section Illustration.svg'
+property.poi.nightLifeSprite = '/assets/Koramangala- Around the Property Section Illustration.svg'
+property.poi.attractionsSprite = '/assets/Koramangala- Around the Property Section Illustration-1.svg'

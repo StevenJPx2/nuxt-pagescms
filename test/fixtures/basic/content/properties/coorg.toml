@@ -1,0 +1,73 @@
+
+name = 'Coorg'
+sprite = '/assets/Hompage Text Section Illustration- Tablet-7.svg'
+description = 'Experience the dynamic energy of Koramangala, perfectly situated for both business and leisure travelers.'
+color = 'yellow'
+releaseDate = '2024-04-05'
+location.address = 'No:3, 80 Feet Road Near 91 Spring Board, Opposite Indoor stadium, Koramangala 8th Block, Koramangala,'
+location.state = 'Karnataka'
+location.country = 'India'
+location.pin = '560017'
+location.locations = [
+	{ title = 'Kempegowda International Airport, Bangalore', distance = 35.0, eta = 60.0, link = 'https://maps.app.goo.gl/uEjpee6sLsrnmrYx5', lat = 12.93794, lng = 77.62628 },
+	{ title = 'Bus Terminal Koramangala TTMC', distance = 6.0, eta = 20.0, lat = 12.94108, lng = 77.62523, link = 'https://maps.app.goo.gl/qwRZS7kxZTUqvLQC9' },
+	{ title = 'Bangalore City Railway Station', distance = 6.0, eta = 20.0, lat = 12.83489, lng = 77.62538, link = 'https://maps.app.goo.gl/XRWwdPd4tTvnCksK8' },
+]
+location.city = 'Bangalore'
+location.lat = 12.93981
+location.lng = 77.62844
+location.link = 'https://maps.app.goo.gl/b2RSJusYzh47DixWA'
+roomAttributes.count = 50.0
+roomAttributes.amenities = [
+	{ description = 'Beautifully designed expansive floor to ceiling heights', sprite = '/assets/window-vines.svg', featured = true },
+	{ description = '5 star bedding and linens', sprite = '/assets/man-sleeping.svg', featured = true },
+	{ description = '24 x 7 enterprise-grade free wifi', sprite = '/assets/cat-wifi.svg', featured = true },
+	{ description = 'Complementary movie streaming and smart TVs are standard', sprite = '/assets/popcorn-man.svg', featured = true },
+	{ description = 'Automatic safe', sprite = '/assets/safe.svg', featured = false },
+	{ description = 'Key-card access only', sprite = '/assets/credit-card.svg', featured = false },
+	{ description = 'On-demand ironing-boards', sprite = '/assets/iron.svg', featured = false },
+	{ description = '24-hr Room Service', sprite = '/assets/cart.svg', featured = false },
+	{ description = 'Mini fridge', sprite = '/assets/fridge.svg', featured = false },
+	{ description = 'Storage Cupboards', sprite = '/assets/closet.svg', featured = false },
+	{ description = 'On-demand Laundry', sprite = '/assets/washing-machine.svg', featured = false },
+	{ description = 'Driers', sprite = '/assets/hair-dryer.svg', featured = false },
+	{ description = 'Dental and Shaving kits', sprite = '/assets/blanket.svg', featured = false },
+	{ description = 'Kitchen Counter', sprite = '/assets/cabinet.svg', featured = false },
+]
+amenities = [
+	{ description = 'Parking on site', sprite = '/assets/park.svg' },
+	{ description = 'Coworking business centre', sprite = '/assets/work.svg' },
+	{ description = 'Gym room', sprite = '/assets/gym.svg' },
+	{ description = 'Yoga Studio', sprite = '/assets/yoga.svg' },
+	{ description = 'Recreation Room', sprite = '/assets/shuttle.svg' },
+	{ description = 'Library Area', sprite = '/assets/book-shelf.svg' },
+]
+rooms = [
+	{ name = 'Cozy Studio', sqft = 205.0, occupancy = 2.0, rate = 3500.0 },
+	{ name = 'Large non-Balcony', sqft = 205.0, occupancy = 2.0, rate = 4500.0 },
+	{ name = 'Large Balcony Rooms', sqft = 205.0, occupancy = 2.0, rate = 5500.0 },
+]
+lookbook = [
+	{ description = 'Game room' },
+	{ description = 'Gym' },
+	{ description = 'All day café' },
+	{ description = 'Coworking' },
+	{ description = 'Yoga' },
+]
+restaurant = [
+	{ name = 'Salt', description = 'Salt is our all-day dining restaurant with a breezy and bright dining room.', sprite = '/assets/Homepage- Our Restuarants Section Illustration.svg' },
+]
+poi.restaurants = [
+	{ title = 'Chinita', distance = 2.0, eta = 5.0 },
+	{ title = 'Chianti', distance = 5.0, eta = 10.0 },
+	{ title = 'Kebapci', distance = 3.0, eta = 5.0 },
+]
+poi.nightLife = [
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+	{ title = 'Tipsy Bull', distance = 5.0, eta = 10.0 },
+]
+poi.attractions = [
+	{ title = 'Lalbagh Botanical Garden', distance = 7.0, eta = 10.0 },
+	{ title = 'Cubbon Park', distance = 6.0, eta = 20.0 },
+]
