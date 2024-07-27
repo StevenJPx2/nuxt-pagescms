@@ -50,7 +50,7 @@ export const renderField = (field: Field): string => {
     type = `{ ${field.fields.map(renderField).join("; ")} }`;
   }
 
-  return `${field.name}${!field.required ? "?" : ""}: ${type}${
+  return `"${field.name}"${!field.required ? "?" : ""}: ${type}${
     field.list ? "[]" : ""
   }`;
 };

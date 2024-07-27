@@ -1,5 +1,6 @@
 // @ts-expect-error virtual file
 import files from "#pages-cms/pages/file";
+import { defineEventHandler } from "h3";
 
 export default defineEventHandler(async (event) => {
   const page = getRouterParam(event, "page");
