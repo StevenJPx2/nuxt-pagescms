@@ -14,7 +14,8 @@ import { format } from "prettier";
 import { parse } from "./utils";
 import { camelCase, join, pascalCase } from "string-ts";
 import { fdir } from "fdir";
-import type { Format, FullFormat } from "./utils/formats";
+import type { Format } from "./utils/formats";
+import { type Config, type ContentType, renderField } from "./utils/config";
 
 interface ModuleOptions {
   typePrefix: string;
@@ -37,10 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
       `${virtualFilePath}/${options.typeVirtualFileName}` as const;
 
     nuxt.hook("nitro:config", async (nitroConfig) => {
-      const types: Record<
-        Config["content"][number]["type"],
-        Record<string, unknown>
-      > = {
+      const types: Record<ContentType, Record<string, unknown>> = {
         file: {},
         collection: {},
       };
@@ -87,7 +85,7 @@ export default defineNuxtModule<ModuleOptions>({
       getContents: async () => {
         let template = "";
 
-        const types: Record<Config["content"][number]["type"], string[]> = {
+        const types: Record<ContentType, string[]> = {
           file: [],
           collection: [],
         };
@@ -134,56 +132,3 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolve("./runtime/composables"));
   },
 });
-
-type Field = { name: string; list?: boolean; required?: boolean } & (
-  | {
-      type:
-        | "string"
-        | "number"
-        | "boolean"
-        | "rich-text"
-        | "text"
-        | "code"
-        | "date"
-        | "image";
-    }
-  | { type: "object"; fields: Field[] }
-  | {
-      type: "select";
-      options?: { values: (string | { value: string; label: string })[] };
-    }
-);
-
-type Config = {
-  content: {
-    name: string;
-    type: "file" | "collection";
-    path: string;
-    format?: FullFormat;
-    fields: Field[];
-  }[];
-};
-
-const renderField = (field: Field): string => {
-  let type = "string";
-  if (field.type === "number") type = "number";
-  else if (field.type === "boolean") type = "boolean";
-  else if (field.type === "date") type = "Date";
-  else if (field.type === "select") {
-    type =
-      field.options?.values
-        .map((v) => {
-          const value = typeof v === "string" ? v : v.value;
-          return `"${value}"`;
-        })
-        .join(" | ") ?? "string";
-  }
-
-  if (field.type === "object") {
-    type = `{ ${field.fields.map(renderField).join("; ")} }`;
-  }
-
-  return `${field.name}${!field.required ? "?" : ""}: ${type}${
-    field.list ? "[]" : ""
-  }`;
-};

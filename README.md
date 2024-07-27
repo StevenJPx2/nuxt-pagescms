@@ -24,9 +24,18 @@ My new Nuxt module for doing amazing things.
 
 <!-- Highlight some of the features your module provide here -->
 - 🥱 Zero config setup
-- 💪 Fully type safe `useFile` and `useComposable`
+- 💪 Fully type safe `usePagesFile` and `usePagesCollection`
 - 🛡️ Auto-generated types for composables from `.pages.yml`
 - 🤗 Fully SSR and SSG friendly!
+
+## Usage
+```vue
+<script setup lang="ts">
+const home = await usePagesFile("home"); // fully typed with only the files defined in .pages.yml
+
+home.value; // fully typed based on the schema given in .pages.yml
+</script>
+```
 
 ## Quick Setup
 

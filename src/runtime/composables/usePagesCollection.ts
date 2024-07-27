@@ -1,6 +1,6 @@
 import type { PagesCollection } from "#build/pages-cms/pages";
 
-export async function useCollection<
+export default async function <
   Key extends keyof PagesCollection,
   T extends PagesCollection[Key],
 >(path: Key) {

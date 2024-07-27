@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const home = await useFile("home");
-const common = await useFile("common");
-const propertiesPage = await useFile("propertiesPage");
+const home = await usePagesFile("home");
+const common = await usePagesFile("common");
+const propertiesPage = await usePagesFile("propertiesPage");
 
-const properties = await useCollection("properties");
-const faq = await useCollection("faq");
-const experiences = await useCollection("experiences");
+const properties = await usePagesCollection("properties");
+const faq = await usePagesCollection("faq");
+const experiences = await usePagesCollection("experiences");
 
 const files = computed(() => ({
   Home: home.value,
