@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.3...v0.1.4)
+
+### 🩹 Fixes
+
+- Possible fix for import resolve ([eede708](https://github.com/StevenJPx2/nuxt-pagescms/commit/eede708))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.3
 
 [compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.2...v0.1.3)
