@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.2...v0.1.3)
+
+### 🩹 Fixes
+
+- Possible fix for file not found error, simplify and obfuscate server routes ([c9da172](https://github.com/StevenJPx2/nuxt-pagescms/commit/c9da172))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.2
 
 [compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.1...v0.1.2)
