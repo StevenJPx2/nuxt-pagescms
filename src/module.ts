@@ -131,13 +131,13 @@ export default defineNuxtModule<ModuleOptions>({
     addServerHandler({
       lazy: true,
       route: "/__pages-cms__/files/:page",
-      handler: resolve("./runtime/server/files.get.ts"),
+      handler: resolve("./runtime/server/files.get"),
     });
 
     addServerHandler({
       lazy: true,
       route: "/__pages-cms__/collections/:page",
-      handler: resolve("./runtime/server/collections.get.ts"),
+      handler: resolve("./runtime/server/collections.get"),
     });
 
     addImportsDir(resolve("./runtime/composables"));

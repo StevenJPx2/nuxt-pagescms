@@ -20,6 +20,11 @@
   "files": [
     "dist"
   ],
+  "build": {
+    "externals": [
+      "node:fs"
+    ]
+  },
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
