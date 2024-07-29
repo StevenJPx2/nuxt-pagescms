@@ -5,9 +5,7 @@ export default async function <
   Key extends keyof PagesFile,
   T extends PagesFile[Key],
 >(path: Key) {
-  const { data } = await useFetch(`/api/pages/files/${path}`);
-
-  if (!data.value) throw new Error(`File: ${path} not found`);
+  const { data } = await useFetch(`/__pages-cms__/files/${path}`);
 
   return data as unknown as Ref<T>;
 }

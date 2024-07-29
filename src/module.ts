@@ -2,7 +2,7 @@ import * as fs from "node:fs";
 
 import {
   addImportsDir,
-  addServerScanDir,
+  addServerHandler,
   addTypeTemplate,
   createResolver,
   defineNuxtModule,
@@ -128,7 +128,18 @@ export default defineNuxtModule<ModuleOptions>({
 
     const { resolve } = createResolver(import.meta.url);
 
-    addServerScanDir(resolve("./runtime/server"));
+    addServerHandler({
+      lazy: true,
+      route: "/__pages-cms__/files/:page",
+      handler: resolve("./runtime/server/files.get.ts"),
+    });
+
+    addServerHandler({
+      lazy: true,
+      route: "/__pages-cms__/collections/:page",
+      handler: resolve("./runtime/server/collections.get.ts"),
+    });
+
     addImportsDir(resolve("./runtime/composables"));
   },
 });
