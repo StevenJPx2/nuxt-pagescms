@@ -8,15 +8,15 @@ const faq = await usePagesCollection("faq");
 const experiences = await usePagesCollection("experiences");
 
 const files = computed(() => ({
-  Home: home.value,
-  Common: common.value,
-  "Properties Page": propertiesPage.value,
+  Home: home,
+  Common: common,
+  "Properties Page": propertiesPage,
 }));
 
 const collections = computed(() => ({
-  Properties: properties.value,
-  FAQ: faq.value,
-  Experiences: experiences.value,
+  Properties: properties,
+  FAQ: faq,
+  Experiences: experiences,
 }));
 
 const testValues = computed(() => ({
