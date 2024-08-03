@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.4...v0.1.5)
+
+### 🩹 Fixes
+
+- Try some extra things to render composable on server ([e5a7d28](https://github.com/StevenJPx2/nuxt-pagescms/commit/e5a7d28))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.4
 
 [compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.3...v0.1.4)
