@@ -129,14 +129,12 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url);
 
     addServerHandler({
-      lazy: true,
-      route: "/__pages-cms__/files/:page",
+      route: "/api/_pages-cms/files/:page",
       handler: resolve("./runtime/server/files.get"),
     });
 
     addServerHandler({
-      lazy: true,
-      route: "/__pages-cms__/collections/:page",
+      route: "/api/_pages-cms/collections/:page",
       handler: resolve("./runtime/server/collections.get"),
     });
 
