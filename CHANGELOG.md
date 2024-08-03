@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.5...v0.2.0)
+
+### 🩹 Fixes
+
+- ⚠️  Remove useFetch for $fetch, no refs now ([8bcbe7d](https://github.com/StevenJPx2/nuxt-pagescms/commit/8bcbe7d))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove useFetch for $fetch, no refs now ([8bcbe7d](https://github.com/StevenJPx2/nuxt-pagescms/commit/8bcbe7d))
+
+### ❤️ Contributors
+
+- Steven John <stevenjpx2@gmail.com>
+
 ## v0.1.5
 
 [compare changes](https://github.com/StevenJPx2/nuxt-pagescms/compare/v0.1.4...v0.1.5)
