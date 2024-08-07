@@ -33,7 +33,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 <script setup lang="ts">
 const home = await usePagesFile("home"); // fully typed with only the files defined in .pages.yml
 
-home.value; // fully typed based on the schema given in .pages.yml
+home; // fully typed based on the schema given in .pages.yml
 </script>
 ```
 
