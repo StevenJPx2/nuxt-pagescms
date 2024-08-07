@@ -129,13 +129,8 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url);
 
     addServerHandler({
-      route: "/api/_pages-cms/files/:page",
-      handler: resolve("./runtime/server/files.get"),
-    });
-
-    addServerHandler({
-      route: "/api/_pages-cms/collections/:page",
-      handler: resolve("./runtime/server/collections.get"),
+      route: "/api/_pages-cms/:type/:page",
+      handler: resolve("./runtime/server/pages.get"),
     });
 
     addImportsDir(resolve("./runtime/composables"));
